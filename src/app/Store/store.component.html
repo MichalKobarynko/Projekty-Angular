@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col bg-dark text-white">
       <a class="navbar-brand">Sklep Sportowy</a>
+      <cart-summary></cart-summary>
     </div>
   </div>
 
@@ -16,15 +17,19 @@
         {{cat}}
       </button>
     </div>
-    <div class="col-9 p-2">
-      <div *ngFor="let product of products" class="card m-1 p-1 bg-light">
+    <div class="col-9 p-2 ">
+      <div *ngFor="let product of products" class="card m-1 p-1 bg-light ">
         <h4>
           {{product.name}}
           <span class="badge badge-pill badge-primary float-right">
             {{ product.price | currency:"PLN":"symbol":undefined:"pl-PL" }}
           </span>
         </h4>
-        <div class="card-text bg-white p-1">{{product.description}}</div>
+        <div class="card-text bg-white p-1">{{product.description}}
+          <button class="btn btn-sm btn-success float-right" (clic)="addProductToCart(product)">
+            Dodaj do koszyka
+          </button>
+        </div>
       </div>
 
       <div class="from-inline float-left mr-1 p-1">
@@ -56,9 +61,9 @@
           <option value="6">6 na stronie</option>
           <option value="8">8 na stronie</option>
         </select>
-      </div>
+      </div>-->
 
-      <div class="btn-group float-right">
+      <!--<div class="btn-group float-right">
         <button *counter="let page of pageCount" (click)="changePage(page)"
                 class="btn btn-outline-primary" [class.active]="page == selectedPage">
           {{page}}

@@ -1,11 +1,15 @@
-﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="float-right">
+  <small>
+    Koszyk:
+    <span *ngIf="cart.itemCount > 0">
+      {{cart.itemCount}} produkt(ów)
+      {{cart.cartPrice | currency:"PLN":"symbol":undefined:"pl-PL"}}
+    </span>
+    <span *ngIf="cart.itemCount == 0">
+      (pusty)
+    </span>
+  </small>
+  <button class="btn btn-sm bg-dark text-white" [disabled]="cart.itemCount == 0">
+    <i class="fa fa-shopping-cart"></i>
+  </button>
+</div>
